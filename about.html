@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Lorevyn</title>
+  <meta name="description" content="The story behind Lorevyn — why it was built, what it stands for, and what the name means.">
+  <link rel="canonical" href="https://lorevyn.app/about">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-style: italic;
+      color: #fff;
+      max-width: 640px;
+      margin: 0 auto 16px;
+      line-height: 1.4;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: var(--cream-card);
+      border-radius: 20px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+    }
+    .value-card__number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--sage);
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.30;
+    }
+    .name-origin {
+      background: var(--black);
+      border-radius: 28px;
+      padding: 64px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .name-origin::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(74,124,89,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .name-origin h2 { color: #fff; margin-bottom: 24px; }
+    .name-origin p  { color: rgba(255,255,255,0.60); max-width: 600px; }
+    .name-breakdown {
+      display: flex;
+      gap: 24px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    .name-part {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 20px 24px;
+      flex: 1;
+      min-width: 160px;
+    }
+    .name-part__word {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--terracotta);
+      margin-bottom: 4px;
+    }
+    .name-part__origin { font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .name-part__meaning { font-size: 0.875rem; color: rgba(255,255,255,0.60); }
+
+    @media (max-width: 640px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .name-origin { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__wordmark">Lorevyn<span>.</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav__cta">Get the app</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container--narrow">
+    <p class="about-hero-quote">"I wanted a reading app that respected me as a reader — not as a data point."</p>
+    <p>The story behind Lorevyn.</p>
+  </div>
+</div>
+
+<!-- Origin story -->
+<section class="section">
+  <div class="container--narrow">
+    <div class="prose">
+      <div class="section-label">Why Lorevyn exists</div>
+      <h2>Built out of frustration. Refined with intention.</h2>
+      <div class="divider"></div>
+
+      <p>Lorevyn started as a personal project. Like many serious readers, I had been using Goodreads for years — logging books, leaving ratings, following friends. And like many serious readers, I had grown deeply frustrated with it.</p>
+
+      <p>Goodreads hasn't changed meaningfully since Amazon acquired it in 2013. The interface feels like it was designed in 2008. Your reading data is used to serve Amazon recommendations. There are no real statistics about your reading patterns. Your private notes aren't private. And the experience of opening the app doesn't feel like anything at all — it's a form to fill in, not a place to spend time.</p>
+
+      <p>StoryGraph is a genuine improvement — built by a reader, for readers, with a clear ethical compass. But it runs on donations and goodwill. That's admirable, but it's not a stable long-term business model for something as important as your reading history.</p>
+
+      <p>So I built Lorevyn. A reading tracker that treats your data as private by default, not as something to harvest. An app that costs a fair amount because building something this good takes sustained effort, and sustainable products need sustainable revenue. An app that looks and feels like something worth opening every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Name origin -->
+<section class="section--sm">
+  <div class="container">
+    <div class="name-origin">
+      <div class="section-label" style="color:var(--terracotta);">The name</div>
+      <h2>What does Lorevyn mean?</h2>
+      <div class="name-breakdown">
+        <div class="name-part">
+          <div class="name-part__word">Lore</div>
+          <div class="name-part__origin">Old English / Latin</div>
+          <div class="name-part__meaning">A body of knowledge, tradition, and learning passed through stories and books.</div>
+        </div>
+        <div class="name-part">
+          <div class="name-part__word">-vyn</div>
+          <div class="name-part__origin">Celtic / Welsh root</div>
+          <div class="name-part__meaning">From "wyn" — meaning joy, blessing, or that which brings happiness.</div>
+        </div>
+      </div>
+      <p>Lorevyn means the joy of knowledge. The happiness that comes from a life spent reading. It's a made-up word — there are zero trademark conflicts and the domain was available — but its roots are real, and its meaning is exactly right.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="section-label">What we stand for</div>
+      <h2>Four principles that guide every decision</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card__number">01</div>
+        <h3>Trust is the product</h3>
+        <p>Every feature decision, every privacy choice, every line of copy is evaluated against one question: does this build trust or erode it? Lorevyn exists in the intimate space of your reading life. That space deserves respect.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__number">02</div>
+        <h3>Honesty about the business</h3>
+        <p>Lorevyn costs money because building something this good takes real effort. We charge a fair price and we're transparent about it. The free tier is genuinely useful because we believe in earning your upgrade, not forcing it.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__number">03</div>
+        <h3>Design that respects readers</h3>
+        <p>Readers are not generic users. They are people who choose how to spend their most finite resource — their attention. Lorevyn is designed to feel worthy of that attention: beautiful, considered, and never manipulative.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__number">04</div>
+        <h3>Data belongs to the reader</h3>
+        <p>Your reading history is one of the most personal records of your intellectual life. It should live where you decide, be exported whenever you want, and never be used without your knowledge. Full stop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Lorevyn.</div>
+        <p class="footer__tagline">A life well read.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="features.html#premium">Premium</a></li>
+          <li><a href="#">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="privacy.html#terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Lorevyn. All rights reserved.</p>
+      <p>Made for readers, by a reader.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+</script>
+</body>
+</html>

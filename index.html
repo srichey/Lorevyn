@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorevyn — A Life Well Read</title>
+  <meta name="description" content="Track your books. Discover the reader behind them. Lorevyn is the privacy-first reading tracker for people who take their reading seriously.">
+  <meta name="theme-color" content="#0E0E0E">
+  <meta property="og:title" content="Lorevyn — A Life Well Read">
+  <meta property="og:description" content="Track your books. Discover the reader behind them.">
+  <meta property="og:url" content="https://lorevyn.app">
+  <link rel="canonical" href="https://lorevyn.app">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      background: var(--black);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 75% 50%, rgba(74,124,89,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(181,103,62,0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--terracotta);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: 'Lora', serif;
+      margin-bottom: 24px;
+    }
+    .hero__eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: var(--terracotta);
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(2.8rem, 6vw, 4.4rem);
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+    .hero__sub {
+      color: rgba(255,255,255,0.60);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 440px;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero__trust {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+    }
+    .hero__trust::before {
+      content: '🔒';
+      font-size: 0.75rem;
+    }
+    /* Phone mockup */
+    .hero__visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-mockup {
+      width: 260px;
+      height: 520px;
+      background: #1A1A1A;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,0.10);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 32px 80px rgba(0,0,0,0.60),
+        inset 0 0 0 1px rgba(255,255,255,0.04);
+      overflow: hidden;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+    .phone-screen {
+      background: #F6F1E9;
+      height: 100%;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .phone-header {
+      background: #0E0E0E;
+      margin: -20px -16px 0;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .phone-header-title {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .phone-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--terracotta);
+    }
+    .phone-greeting {
+      font-family: 'Lora', serif;
+      font-size: 0.7rem;
+      color: #1E1E1E;
+      margin-top: 12px;
+    }
+    .phone-streak {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--terracotta);
+      color: #fff;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.65rem;
+      font-family: 'Lora', serif;
+      width: fit-content;
+    }
+    .phone-book-card {
+      background: #FDFCFA;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .phone-cover {
+      width: 36px;
+      height: 52px;
+      border-radius: 4px;
+      background: var(--sage);
+      flex-shrink: 0;
+    }
+    .phone-book-info { flex: 1; }
+    .phone-book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #1E1E1E;
+      line-height: 1.3;
+    }
+    .phone-book-author {
+      font-size: 0.6rem;
+      color: var(--sage);
+      font-style: italic;
+      margin: 2px 0;
+    }
+    .phone-progress-bar {
+      height: 4px;
+      background: rgba(74,124,89,0.15);
+      border-radius: 2px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+    .phone-progress-fill {
+      height: 100%;
+      background: var(--sage);
+      border-radius: 2px;
+      width: 65%;
+    }
+    .phone-heatmap {
+      background: #FDFCFA;
+      border-radius: 12px;
+      padding: 10px;
+    }
+    .phone-heatmap-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(30,30,30,0.40);
+      margin-bottom: 6px;
+      font-family: 'Lora', serif;
+    }
+    .phone-heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      gap: 2px;
+    }
+    .phone-heatmap-cell {
+      aspect-ratio: 1;
+      border-radius: 1px;
+      background: rgba(74,124,89,0.12);
+    }
+    .phone-heatmap-cell.active { background: var(--sage); }
+    .phone-heatmap-cell.mid { background: rgba(74,124,89,0.45); }
+    .phone-fab {
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--sage-dark);
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 0.65rem;
+      font-family: 'Lora', serif;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(45,90,61,0.40);
+    }
+    .phone-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #0E0E0E;
+      height: 52px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 8px;
+    }
+    .phone-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .phone-nav-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.20);
+    }
+    .phone-nav-icon.active { background: #fff; }
+    .phone-nav-label {
+      font-size: 0.45rem;
+      color: rgba(255,255,255,0.40);
+      font-family: 'Lora', serif;
+    }
+    .phone-nav-label.active { color: #fff; }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: var(--sage-dark);
+      padding: 28px 0;
+    }
+    .stats-bar__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-around;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat__number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat__label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    /* ── Why Lorevyn ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: var(--cream-card);
+      border-radius: 20px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .why-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    /* ── Feature highlight ── */
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .feature-row--reverse { direction: rtl; }
+    .feature-row--reverse > * { direction: ltr; }
+    .feature-visual {
+      background: var(--cream-card);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-content .pill { margin-bottom: 20px; }
+    .feature-content h2 { margin-bottom: 16px; }
+    .feature-content p  { margin-bottom: 28px; }
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .feature-list li::before {
+      content: '✦';
+      color: var(--terracotta);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.7rem;
+    }
+
+    /* ── Trust section ── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .trust-item {
+      background: var(--cream-card);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .trust-item__icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .trust-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .trust-item p { font-size: 0.82rem; }
+
+    /* ── CTA banner ── */
+    .cta-banner {
+      background: var(--sage-dark);
+      border-radius: 28px;
+      padding: 72px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(181,103,62,0.20) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 { color: #fff; margin-bottom: 16px; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .cta-banner p  { color: rgba(255,255,255,0.60); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-banner__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+      .hero__sub, .hero__trust { margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+      .hero__visual { order: -1; }
+      .why-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .feature-row { grid-template-columns: 1fr; gap: 40px; }
+      .feature-row--reverse { direction: ltr; }
+      .cta-banner { padding: 48px 24px; }
+    }
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr; }
+      .stats-bar__inner { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__wordmark">Lorevyn<span>.</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav__cta">Get the app</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────────────────────── -->
+<section class="hero" aria-label="Hero">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <div class="hero__eyebrow fade-up">For readers who are serious about their books</div>
+      <h1 class="fade-up fade-up--delay-1">A life<br><em>well read.</em></h1>
+      <p class="hero__sub fade-up fade-up--delay-2">
+        Track your books. Discover the reader behind them. Lorevyn is the privacy-first reading tracker built for people who actually finish books.
+      </p>
+      <div class="hero__actions fade-up fade-up--delay-3">
+        <a href="#" class="btn btn--primary">Download for Android</a>
+        <a href="features.html" class="btn btn--ghost">See all features</a>
+      </div>
+      <div class="hero__trust fade-up fade-up--delay-4">
+        Your data stays on your device. Always. No ads, ever.
+      </div>
+    </div>
+    <div class="hero__visual fade-up fade-up--delay-2">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-header">
+            <span class="phone-header-title">Lorevyn</span>
+            <div class="phone-avatar"></div>
+          </div>
+          <p class="phone-greeting">Good evening, Reader 🦉</p>
+          <div class="phone-streak">🔥 14 day streak</div>
+          <div class="phone-book-card">
+            <div class="phone-cover"></div>
+            <div class="phone-book-info">
+              <div class="phone-book-title">The Midnight Library</div>
+              <div class="phone-book-author">Matt Haig</div>
+              <div class="phone-progress-bar">
+                <div class="phone-progress-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-heatmap">
+            <div class="phone-heatmap-label">Reading Activity</div>
+            <div class="phone-heatmap-grid" id="heatmap"></div>
+          </div>
+        </div>
+        <div class="phone-fab">+ Log Pages</div>
+        <div class="phone-nav">
+          <div class="phone-nav-item">
+            <div class="phone-nav-icon active"></div>
+            <div class="phone-nav-label active">Reading</div>
+          </div>
+          <div class="phone-nav-item">
+            <div class="phone-nav-icon"></div>
+            <div class="phone-nav-label">Library</div>
+          </div>
+          <div class="phone-nav-item">
+            <div class="phone-nav-icon"></div>
+            <div class="phone-nav-label">Discover</div>
+          </div>
+          <div class="phone-nav-item">
+            <div class="phone-nav-icon"></div>
+            <div class="phone-nav-label">Journey</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats bar ───────────────────────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stats-bar__inner">
+    <div class="stat">
+      <div class="stat__number">100%</div>
+      <div class="stat__label">Private by design</div>
+    </div>
+    <div class="stat">
+      <div class="stat__number">0</div>
+      <div class="stat__label">Ads. Ever.</div>
+    </div>
+    <div class="stat">
+      <div class="stat__number">14</div>
+      <div class="stat__label">Reading moods to track</div>
+    </div>
+    <div class="stat">
+      <div class="stat__number">4</div>
+      <div class="stat__label">Companion characters</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Why Lorevyn ─────────────────────────────────────────────────────────── -->
+<section class="section" aria-label="Why Lorevyn">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="section-label">Why Lorevyn</div>
+      <h2>Built for readers who've outgrown Goodreads</h2>
+      <div class="divider divider--center"></div>
+      <p style="max-width:520px; margin: 0 auto;">Goodreads hasn't changed in a decade. StoryGraph is free but donation-funded. Lorevyn is built as a sustainable, trust-first product that respects your reading life.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <h3>Genuinely private</h3>
+        <p>Your library lives on your device. No server stores your reading history. No profile to harvest. No algorithm watching you.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3>Deep reading insights</h3>
+        <p>Your Reading Fingerprint reveals your genuine taste — genre patterns, mood preferences, pace, and your reading identity across years.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <h3>Designed with care</h3>
+        <p>Not another utility app. Lorevyn is crafted to feel like a beautiful object — the kind of app you open because you want to, not because you have to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Feature: Reading Fingerprint ──────────────────────────────────────── -->
+<section class="section" style="background: var(--cream-card);" aria-label="Reading Fingerprint feature">
+  <div class="container">
+    <div class="feature-row">
+      <div class="feature-visual">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--sage-dark); margin-bottom:8px; font-style:italic;">Your Reading Fingerprint</div>
+          <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--sage-dark); margin-bottom:4px;">The Contemplative</div>
+          <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:24px;">Literary · Thoughtful · Slow-paced</div>
+          <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:20px;">
+            <span style="background:var(--sage); color:#fff; padding:4px 12px; border-radius:999px; font-size:0.75rem;">Literary Fiction</span>
+            <span style="background:var(--terracotta); color:#fff; padding:4px 12px; border-radius:999px; font-size:0.75rem;">Non-fiction</span>
+            <span style="border:1.5px solid var(--sage); color:var(--sage-dark); padding:4px 12px; border-radius:999px; font-size:0.75rem;">Philosophy</span>
+          </div>
+          <div style="background:var(--cream); border-radius:12px; padding:16px; font-size:0.82rem; color:var(--text-muted); font-style:italic; line-height:1.6;">
+            "You read deeply, not widely. When a book grabs you, you take your time with it."
+          </div>
+        </div>
+      </div>
+      <div class="feature-content">
+        <span class="pill pill--sage">Reading Fingerprint</span>
+        <h2>Discover the reader behind the books</h2>
+        <p>Your Reading Fingerprint is Lorevyn's most distinctive feature. Based on your actual reading data — genres, moods, pace, and patterns — it generates a unique persona that describes how you read.</p>
+        <ul class="feature-list">
+          <li>Calculated from your real reading history, not a quiz</li>
+          <li>Updates automatically as you read more</li>
+          <li>Shareable as a beautiful card</li>
+          <li>Yours to keep — free, not behind a paywall</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Feature: Streak & Heatmap ─────────────────────────────────────────── -->
+<section class="section" aria-label="Streak feature">
+  <div class="container">
+    <div class="feature-row feature-row--reverse">
+      <div class="feature-content">
+        <span class="pill pill--terracotta">Reading Streaks</span>
+        <h2>Build the habit. Track the journey.</h2>
+        <p>Reading streaks and a beautiful heatmap show your reading consistency at a glance. Every session logged counts — even 10 pages before bed.</p>
+        <ul class="feature-list">
+          <li>Daily streak tracking with milestone badges</li>
+          <li>Visual heatmap of your reading activity</li>
+          <li>Streak repair tokens so one missed day doesn't break everything</li>
+          <li>Gentle reminders that feel encouraging, not nagging</li>
+        </ul>
+      </div>
+      <div class="feature-visual">
+        <div style="width:100%;">
+          <div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); margin-bottom:12px; font-family:'Lora',serif;">Reading Activity · Last 6 months</div>
+          <div id="featureHeatmap" style="display:grid; grid-template-columns:repeat(26,1fr); gap:3px;"></div>
+          <div style="display:flex; align-items:center; gap:16px; margin-top:20px;">
+            <div style="background:var(--terracotta); color:#fff; border-radius:999px; padding:6px 16px; font-size:0.8rem; font-family:'Lora',serif; font-weight:500;">🔥 14 day streak</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">47 days read this year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Trust ───────────────────────────────────────────────────────────────── -->
+<section class="section" style="background: var(--black);" aria-label="Trust features">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <div class="section-label" style="color:var(--terracotta);">Privacy & Trust</div>
+      <h2 style="color:#fff;">Your reading life belongs to you</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item" style="background:rgba(255,255,255,0.04); box-shadow:none; border:1px solid rgba(255,255,255,0.08);">
+        <div class="trust-item__icon">📱</div>
+        <h3 style="color:#fff;">On-device only</h3>
+        <p style="color:rgba(255,255,255,0.45);">Your library is stored in a private database on your phone. Nothing leaves your device.</p>
+      </div>
+      <div class="trust-item" style="background:rgba(255,255,255,0.04); box-shadow:none; border:1px solid rgba(255,255,255,0.08);">
+        <div class="trust-item__icon">🚫</div>
+        <h3 style="color:#fff;">Zero ads</h3>
+        <p style="color:rgba(255,255,255,0.45);">No advertising. No sponsored content. No algorithms pushing books at you. Never.</p>
+      </div>
+      <div class="trust-item" style="background:rgba(255,255,255,0.04); box-shadow:none; border:1px solid rgba(255,255,255,0.08);">
+        <div class="trust-item__icon">🔐</div>
+        <h3 style="color:#fff;">Encrypted notes</h3>
+        <p style="color:rgba(255,255,255,0.45);">Your private reading notes are encrypted at rest. Even we can't read them.</p>
+      </div>
+      <div class="trust-item" style="background:rgba(255,255,255,0.04); box-shadow:none; border:1px solid rgba(255,255,255,0.08);">
+        <div class="trust-item__icon">📤</div>
+        <h3 style="color:#fff;">Your data, always</h3>
+        <p style="color:rgba(255,255,255,0.45);">Export your full library any time. No hostage-taking. Your reading history belongs to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────────────────────────── -->
+<section class="section" aria-label="Call to action">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Start reading your way.</h2>
+      <p>Free to download. 7-day Premium trial included. No credit card required to get started.</p>
+      <div class="cta-banner__actions">
+        <a href="#" class="btn btn--primary">Download for Android</a>
+        <a href="features.html" class="btn btn--ghost" style="border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.75);">See all features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Lorevyn.</div>
+        <p class="footer__tagline">A life well read.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="features.html#premium">Premium</a></li>
+          <li><a href="#" >Download</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="privacy.html#terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Lorevyn. All rights reserved.</p>
+      <p>Made for readers, by a reader.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  // Phone heatmap
+  const heatmap = document.getElementById('heatmap');
+  const cells = 26;
+  for (let i = 0; i < cells; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'phone-heatmap-cell';
+    const r = Math.random();
+    if (r > 0.65) cell.classList.add('active');
+    else if (r > 0.40) cell.classList.add('mid');
+    heatmap.appendChild(cell);
+  }
+
+  // Feature heatmap
+  const fh = document.getElementById('featureHeatmap');
+  for (let i = 0; i < 156; i++) {
+    const cell = document.createElement('div');
+    const r = Math.random();
+    const bg = r > 0.60 ? 'var(--sage)' : r > 0.40 ? 'rgba(74,124,89,0.40)' : 'rgba(74,124,89,0.10)';
+    cell.style.cssText = `aspect-ratio:1; border-radius:2px; background:${bg};`;
+    fh.appendChild(cell);
+  }
+</script>
+
+</body>
+</html>

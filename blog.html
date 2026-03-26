@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Lorevyn</title>
+  <meta name="description" content="Thoughts on reading, building Lorevyn, and the intersection of books and technology.">
+  <link rel="canonical" href="https://lorevyn.app/blog">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .coming-soon {
+      text-align: center;
+      padding: 96px 24px;
+    }
+    .coming-soon__eyebrow {
+      font-size: 3rem;
+      margin-bottom: 24px;
+    }
+    .coming-soon h2 { margin-bottom: 16px; }
+    .coming-soon p  { max-width: 480px; margin: 0 auto 32px; }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    .topic-chip {
+      background: var(--cream-card);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .topic-chip span { font-size: 1.1rem; }
+
+    @media (max-width: 640px) {
+      .topics-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__wordmark">Lorevyn<span>.</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav__cta">Get the app</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container--narrow">
+    <h1>The Lorevyn Blog</h1>
+    <p>Thoughts on reading, building in public, and why your reading data belongs to you.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="coming-soon">
+      <div class="coming-soon__eyebrow">📖</div>
+      <h2>Posts are coming soon</h2>
+      <p>The blog launches alongside the app. Topics will include reading habits, the story of building Lorevyn, and honest reflections on the reading app landscape.</p>
+      <a href="contact.html" class="btn btn--sage">Get notified at launch</a>
+
+      <div class="topics-grid">
+        <div class="topic-chip"><span>📱</span> Building Lorevyn in public</div>
+        <div class="topic-chip"><span>🔒</span> Privacy in reading apps</div>
+        <div class="topic-chip"><span>📊</span> What your reading data reveals</div>
+        <div class="topic-chip"><span>📚</span> Reading habit science</div>
+        <div class="topic-chip"><span>✦</span> Why Goodreads failed readers</div>
+        <div class="topic-chip"><span>🎯</span> Setting reading goals that stick</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Lorevyn.</div>
+        <p class="footer__tagline">A life well read.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="features.html#premium">Premium</a></li>
+          <li><a href="#">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="privacy.html#terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Lorevyn. All rights reserved.</p>
+      <p>Made for readers, by a reader.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+</script>
+</body>
+</html>
