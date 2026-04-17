@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    feature/add-book/src/main/res/values-es/strings.xml
+    Spanish strings for :feature:add-book
+    Rule: Feminine forms used by default (D-12 §Spanish gender note).
+    Rule: One <resources> tag only (Lesson 57).
+-->
+<resources>
+
+    <!-- ── Screen titles ──────────────────────────────────────────────────── -->
+    <string name="add_book_title_first_run">¿Qué estás leyendo?</string>
+    <string name="add_book_title_add">Añadir un libro</string>
+    <string name="add_book_title_want_to_read">Añadir a tu lista</string>
+
+    <!-- ── Search field ───────────────────────────────────────────────────── -->
+    <string name="add_book_search_hint">Buscar por título, autor o escanear 📷</string>
+    <string name="add_book_search_content_description">Buscar libros</string>
+    <string name="add_book_scan_icon_content_description">Escanear código de barras</string>
+
+    <!-- ── First-run header ──────────────────────────────────────────────── -->
+    <string name="add_book_first_run_headline">Añadamos tu primer libro</string>
+
+    <!-- ── Idle tips — shown before search, all modes ────────────────────── -->
+    <string name="add_book_idle_search_tip">Busca por título o autor, o escribe el nombre del libro que estás leyendo ahora.</string>
+    <string name="add_book_idle_scan_tip">¿Tienes el libro cerca? Toca el icono de cámara para escanear el código de barras en segundos.</string>
+
+    <!-- ── Result states ──────────────────────────────────────────────────── -->
+    <string name="add_book_no_results">No se encontraron libros. Prueba otros términos.</string>
+    <string name="add_book_no_results_cta">Ingresar manualmente</string>
+    <string name="add_book_offline_message">La búsqueda requiere internet. Añade manualmente o escanea el código.</string>
+    <string name="add_book_already_in_library">Ya está en tu biblioteca</string>
+    <string name="add_book_loading">Buscando…</string>
+
+    <!-- ── Confirmation view ──────────────────────────────────────────────── -->
+    <string name="add_book_confirm_heading">¿Añadir a tu biblioteca?</string>
+    <string name="add_book_confirm_shelf_label">¿Dónde va este libro?</string>
+    <string name="add_book_confirm_cta">Añadir libro</string>
+    <string name="add_book_confirm_cancel">Volver a resultados</string>
+    <string name="add_book_shelf_reading">Leyendo</string>
+    <string name="add_book_shelf_want_to_read">Quiero leer</string>
+
+    <!-- ── Error states ───────────────────────────────────────────────────── -->
+    <string name="add_book_error_message">Búsqueda fallida. Comprueba tu conexión e inténtalo de nuevo.</string>
+
+    <!-- ── ISBN scanner (SCR-11) ──────────────────────────────────────────── -->
+    <string name="scanner_instruction">Apunta la cámara al código de barras del libro</string>
+    <string name="scanner_permission_rationale">Se necesita acceso a la cámara para escanear códigos. Tu cámara nunca se graba.</string>
+    <string name="scanner_permission_open_settings">Abrir configuración</string>
+    <string name="scanner_permission_denied_message">Se requiere permiso de cámara para escanear códigos.</string>
+    <string name="scanner_non_book_barcode">Ese no parece un código de libro. Inténtalo de nuevo.</string>
+    <string name="scanner_isbn_not_found">Código escaneado. Buscando este libro…</string>
+    <string name="scanner_enter_manually">Ingresar manualmente</string>
+    <string name="scanner_content_description_viewfinder">Visor de cámara para escaneo de código</string>
+
+    <!-- ── Accessibility ──────────────────────────────────────────────────── -->
+    <string name="add_book_result_item_description">%1$s de %2$s, publicado en %3$s</string>
+    <string name="add_book_cover_content_description">Portada de %1$s</string>
+
+    <!-- ── Reading limit UX ──────────────────────────────────────────────── -->
+    <string name="add_book_reading_limit_title">Tu lista de lectura está llena</string>
+    <string name="add_book_reading_limit_message">Ya estás leyendo 5 libros. Añade este a tu lista Por Leer para retomarlo después.</string>
+    <string name="add_book_reading_limit_cta">Añadir a Por Leer</string>
+
+    <string name="scanner_isbn_found">¡ISBN encontrado! Buscando...</string>
+
+    <string name="add_book_first_run_skip">Omitir por ahora</string>
+
+    <!-- ── Manual Entry (SCR-12) ────────────────────────────────────────────── -->
+    <string name="manual_entry_title">Añadir manualmente</string>
+    <string name="manual_entry_label_title">Título *</string>
+    <string name="manual_entry_hint_title">p. ej. El gran Gatsby</string>
+    <string name="manual_entry_title_required">El título es obligatorio</string>
+    <string name="manual_entry_label_author">Autor</string>
+    <string name="manual_entry_hint_author">p. ej. F. Scott Fitzgerald</string>
+    <string name="manual_entry_label_isbn">ISBN</string>
+    <string name="manual_entry_hint_isbn">ISBN de 13 dígitos</string>
+    <string name="manual_entry_label_page_count">Páginas</string>
+    <string name="manual_entry_hint_page_count">p. ej. 320</string>
+    <string name="manual_entry_label_genre">Género</string>
+    <string name="manual_entry_label_status">¿Dónde va este libro?</string>
+    <string name="manual_entry_save_cta">Guardar libro</string>
+
+</resources>

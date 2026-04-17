@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    feature/add-book/src/main/res/values/strings.xml
+    English strings for :feature:add-book
+    Companion ES file: values-es/strings.xml
+    Rule: All user-visible strings live here. No hardcoded strings in Compose.
+    Rule: One <resources> tag only (Lesson 57).
+-->
+<resources>
+
+    <!-- ── Screen titles ──────────────────────────────────────────────────── -->
+    <string name="add_book_title_first_run">What are you reading?</string>
+    <string name="add_book_title_add">Add a book</string>
+    <string name="add_book_title_want_to_read">Add to your list</string>
+
+    <!-- ── Search field ───────────────────────────────────────────────────── -->
+    <string name="add_book_search_hint">Search by title, author or scan 📷</string>
+    <string name="add_book_search_content_description">Search books</string>
+    <string name="add_book_scan_icon_content_description">Scan book barcode</string>
+
+    <!-- ── First-run header ──────────────────────────────────────────────── -->
+    <string name="add_book_first_run_headline">Let\'s add your first book</string>
+
+    <!-- ── Idle tips — shown before search, all modes ────────────────────── -->
+    <string name="add_book_idle_search_tip">Search by title or author, or type the name of the book you\'re reading right now.</string>
+    <string name="add_book_idle_scan_tip">Have the book nearby? Tap the camera icon to scan the barcode in seconds.</string>
+
+    <!-- ── Result states ──────────────────────────────────────────────────── -->
+    <string name="add_book_no_results">No books found. Try different terms.</string>
+    <string name="add_book_no_results_cta">Enter manually</string>
+    <string name="add_book_offline_message">Search requires internet. Add manually or scan the barcode.</string>
+    <string name="add_book_already_in_library">Already in your library</string>
+    <string name="add_book_loading">Searching…</string>
+
+    <!-- ── Confirmation view ──────────────────────────────────────────────── -->
+    <string name="add_book_confirm_heading">Add to your library?</string>
+    <string name="add_book_confirm_shelf_label">Where does this book go?</string>
+    <string name="add_book_confirm_cta">Add book</string>
+    <string name="add_book_confirm_cancel">Back to results</string>
+    <string name="add_book_shelf_reading">Reading</string>
+    <string name="add_book_shelf_want_to_read">Want to Read</string>
+
+    <!-- ── Error states ───────────────────────────────────────────────────── -->
+    <string name="add_book_error_message">Search failed. Check your connection and try again.</string>
+
+    <!-- ── ISBN scanner (SCR-11) ──────────────────────────────────────────── -->
+    <string name="scanner_instruction">Point your camera at the book\'s barcode</string>
+    <string name="scanner_permission_rationale">Camera access is needed to scan barcodes. Your camera is never recorded.</string>
+    <string name="scanner_permission_open_settings">Open Settings</string>
+    <string name="scanner_permission_denied_message">Camera permission is required to scan barcodes.</string>
+    <string name="scanner_non_book_barcode">That doesn\'t look like a book barcode. Try again.</string>
+    <string name="scanner_isbn_not_found">Barcode scanned. Searching for this book…</string>
+    <string name="scanner_enter_manually">Enter manually instead</string>
+    <string name="scanner_content_description_viewfinder">Camera viewfinder for barcode scanning</string>
+
+    <!-- ── Accessibility ──────────────────────────────────────────────────── -->
+    <string name="add_book_result_item_description">%1$s by %2$s, published %3$s</string>
+    <string name="add_book_cover_content_description">Cover of %1$s</string>
+
+    <!-- ── Reading limit UX ──────────────────────────────────────────────── -->
+    <string name="add_book_reading_limit_title">Your reading list is full</string>
+    <string name="add_book_reading_limit_message">You\'re already reading 5 books. Add this one to your Want to Read list to pick up next.</string>
+    <string name="add_book_reading_limit_cta">Add to Want to Read</string>
+
+    <string name="scanner_isbn_found">ISBN found! Looking it up...</string>
+
+    <string name="add_book_first_run_skip">Skip for now</string>
+
+    <!-- ── Manual Entry (SCR-12) ────────────────────────────────────────────── -->
+    <string name="manual_entry_title">Add Manually</string>
+    <string name="manual_entry_label_title">Title *</string>
+    <string name="manual_entry_hint_title">e.g. The Great Gatsby</string>
+    <string name="manual_entry_title_required">Title is required</string>
+    <string name="manual_entry_label_author">Author</string>
+    <string name="manual_entry_hint_author">e.g. F. Scott Fitzgerald</string>
+    <string name="manual_entry_label_isbn">ISBN</string>
+    <string name="manual_entry_hint_isbn">13-digit ISBN</string>
+    <string name="manual_entry_label_page_count">Pages</string>
+    <string name="manual_entry_hint_page_count">e.g. 320</string>
+    <string name="manual_entry_label_genre">Genre</string>
+    <string name="manual_entry_label_status">Where does this book go?</string>
+    <string name="manual_entry_save_cta">Save Book</string>
+
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    feature/billing/src/main/res/values/strings.xml
+    English strings for SCR-14 Paywall.
+    D-13 anti-patterns enforced: no shame language, no fake urgency.
+-->
+<resources>
+    <string name="paywall_headline">See yourself as a reader for the first time.</string>
+    <string name="paywall_subheadline">Unlock the full Lorevyn experience.</string>
+    <string name="paywall_privacy_line">Private by design. Your reading life stays on your device.</string>
+    <string name="paywall_cta">Start your 7-day free trial</string>
+
+    <!-- Outcome-framed premium feature bullets. Edit the outcomes, not feature names. -->
+    <string-array name="paywall_features">
+        <item>Shelves for any mood, genre, or project — no limits</item>
+        <item>See your pace, page speed, and mood trends</item>
+        <item>Compare your reading year over year at a glance</item>
+        <item>Your reading personality, every year you\'ve tracked</item>
+        <item>Find your next book by how you want to feel</item>
+        <item>Protect your streak when life gets in the way</item>
+        <item>Build personal challenges — no preset limits</item>
+        <item>A reading timer that shows how you actually read</item>
+    </string-array>
+    <string name="paywall_dismiss">Maybe later</string>
+    <string name="paywall_trial_note">7 days free, then your chosen plan. Cancel any time. No commitment.</string>
+    <string name="paywall_restore">Restore purchase</string>
+    <string name="paywall_terms">Terms of Use</string>
+    <string name="paywall_privacy">Privacy Policy</string>
+    <string name="paywall_legal_separator">·</string>
+    <string name="paywall_terms_url">https://www.lorevyn.app/privacy.html#terms</string>
+    <string name="paywall_privacy_url">https://www.lorevyn.app/privacy.html</string>
+    <string name="paywall_restore_no_purchase">No active subscription was found for this Google account.</string>
+    <string name="paywall_restore_success">Subscription restored.</string>
+</resources>
