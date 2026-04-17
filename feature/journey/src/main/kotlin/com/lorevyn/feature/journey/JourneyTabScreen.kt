@@ -834,7 +834,7 @@ private fun GoalProgressCard(goalProgress: GoalProgress) {
             },
             modifier   = Modifier.fillMaxWidth().height(6.dp).clip(RoundedCornerShape(3.dp)),
             color      = colors.sage,
-            trackColor = colors.sageTrack,
+            trackColor = colors.sage.copy(alpha = 0.12f),
             strokeCap  = StrokeCap.Round,
         )
         if (goalProgress.isComplete) {
@@ -1117,7 +1117,7 @@ private fun AuthorRow(
             progress   = { count.toFloat() / maxCount },
             modifier   = Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(2.dp)),
             color      = if (isTop) colors.terracotta else colors.sage,
-            trackColor = colors.sageTrack,
+            trackColor = colors.sage.copy(alpha = 0.12f),
             strokeCap  = StrokeCap.Round,
         )
     }
@@ -1173,7 +1173,7 @@ private fun RatingDistributionCard(distribution: Map<Float, Int>) {
                             bucket >= 3.5f -> colors.sage
                             else           -> colors.textSecondary
                         },
-                        trackColor = colors.sageTrack,
+                        trackColor = colors.sage.copy(alpha = 0.12f),
                         strokeCap  = StrokeCap.Round,
                     )
                     Text(
@@ -1323,7 +1323,7 @@ private fun GenreBreakdownContent(distribution: Map<String, Int>) {
                 progress   = { count.toFloat() / maxCount },
                 modifier   = Modifier.weight(1f).height(8.dp).clip(RoundedCornerShape(4.dp)),
                 color      = colors.sage,
-                trackColor = colors.sageTrack,
+                trackColor = colors.sage.copy(alpha = 0.12f),
                 strokeCap  = StrokeCap.Round,
             )
             Text(
@@ -1541,7 +1541,6 @@ private fun formatHours(minutes: Int): String {
 
 @Composable
 private fun formatLabel(format: BookFormat): String = when (format) {
-    val colors = LocalLorevynColors.current
     BookFormat.PHYSICAL  -> stringResource(R.string.journey_format_physical)
     BookFormat.EBOOK     -> stringResource(R.string.journey_format_ebook)
     BookFormat.AUDIOBOOK -> stringResource(R.string.journey_format_audiobook)

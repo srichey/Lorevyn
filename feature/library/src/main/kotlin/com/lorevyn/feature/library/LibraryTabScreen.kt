@@ -73,7 +73,6 @@ import kotlinx.coroutines.flow.collectLatest
 private val VALID_GENRE_NAMES: Set<String> = Genre.entries.map { it.name }.toSet()
 
 private fun genreDisplayName(genre: String): String = when (genre) {
-    val colors = LocalLorevynColors.current
     "FICTION"            -> "Fiction"
     "NON_FICTION"        -> "Non-fiction"
     "MYSTERY"            -> "Mystery"
