@@ -334,14 +334,11 @@ fun LorevynNavHost(
             val viewModel: AddBookViewModel = hiltViewModel()
 
             LaunchedEffect(Unit) {
-                navController.currentBackStackEntry
-                    ?.savedStateHandle
-                    ?.getStateFlow<String?>("scanned_isbn", null)
-                    ?.filterNotNull()
-                    ?.collect { isbn ->
-                        navController.currentBackStackEntry
-                            ?.savedStateHandle
-                            ?.remove<String>("scanned_isbn")
+                backStackEntry.savedStateHandle
+                    .getStateFlow<String?>("scanned_isbn", null)
+                    .filterNotNull()
+                    .collect { isbn ->
+                        backStackEntry.savedStateHandle.remove<String>("scanned_isbn")
                         viewModel.onIsbnScanned(isbn)
                     }
             }
